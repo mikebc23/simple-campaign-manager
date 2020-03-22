@@ -17,4 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', ['middleware' => 'auth', 'uses' => 'HomeController@index'])->name('home');
+Route::get('/admin', ['middleware' => 'auth', 'uses' => 'AdminController@index'])->name('admin');
+
+Route::resource('/admin/campaigns-type', 'CampaignTypeController', ['middleware' => 'auth']);
+Route::resource('/campaigns', 'CampaignController', ['middleware' => 'auth']);
