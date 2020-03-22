@@ -14,21 +14,21 @@ class CampaignTypeSeeder extends Seeder
     {
         DB::table('campaign_type')->insert([
             'campaign_type_name' => 'Campaign Type 1',
-            'campaign_type_description' => 'This is the campaign type #1',
+            'campaign_type_description' => 'This is the campaigns type #1',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('campaign_type')->insert([
             'campaign_type_name' => 'Campaign Type 2',
-            'campaign_type_description' => 'This is the campaign type #2',
+            'campaign_type_description' => 'This is the campaigns type #2',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('campaign_type')->insert([
             'campaign_type_name' => 'Campaign Type 3',
-            'campaign_type_description' => 'This is the campaign type #3',
+            'campaign_type_description' => 'This is the campaigns type #3',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

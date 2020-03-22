@@ -51,6 +51,7 @@ class CampaignTypeController extends Controller
      */
     public function show(CampaignType $campaignType)
     {
+        dd($campaignType);
         return view('admin.campaign_type.show', ['campaign_type' => $campaignType]);
     }
 

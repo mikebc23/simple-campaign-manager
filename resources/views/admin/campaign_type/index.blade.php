@@ -8,7 +8,7 @@
                     <h3>Campaign Type Manager</h3>
                 </div>
                 <div class="col">
-                    <a class="btn btn-primary" href="{{ route('campaign-type.create') }}" role="button">Add</a>
+                    <a class="btn btn-primary" href="{{ route('campaigns-type.create') }}" role="button">Add</a>
                 </div>
             </div>
             <div class="row justify-content-center">

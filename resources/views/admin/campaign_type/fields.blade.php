@@ -14,7 +14,7 @@
         <textarea name="description" class="form-control" placeholder="Campaign Type Description">{{ $campaign_type->description ?? '' }}</textarea>
     </div>
     <div class="col-sm-4">
-        <small class="form-text text-muted">Enter the new campaign type name</small>
+        <small class="form-text text-muted">Enter the new campaign type description</small>
     </div>
 </div>
 
