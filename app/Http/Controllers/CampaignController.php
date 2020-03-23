@@ -30,7 +30,7 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        $campaign_types = DB::table('campaign_types')->get()->pluck('name', 'id')->prepend('Choose one');
+        $campaign_types = DB::table('campaign_types')->where('deleted_at', null)->get()->pluck('name', 'id');
         $user = Auth::user();
 
         return view('campaigns.create')
@@ -49,12 +49,14 @@ class CampaignController extends Controller
     {
         $campaign = Campaign::create($request->input());
 
+        /*
         DB::table('user_campaign')->insert([
             'campaign_id' => $campaign->id,
             'user_id' => Auth::id(),
             'created_at' => new \DateTime(),
             'updated_at' => new \DateTime(),
         ]);
+        */
 
         return redirect()->action('CampaignController@index');
     }
@@ -67,7 +69,7 @@ class CampaignController extends Controller
      */
     public function show(Campaign $campaign)
     {
-        $campaign_types = DB::table('campaign_types')->get()->pluck('name', 'id')->prepend('Choose one');
+        $campaign_types = DB::table('campaign_types')->get()->pluck('name', 'id');
         $user = Auth::user();
 
         return view('campaigns.show')
@@ -85,7 +87,7 @@ class CampaignController extends Controller
      */
     public function edit(Campaign $campaign)
     {
-        $campaign_types = DB::table('campaign_types')->get()->pluck('name', 'id')->prepend('Choose one');
+        $campaign_types = DB::table('campaign_types')->where('deleted_at', null)->get()->pluck('name', 'id');
         $user = Auth::user();
 
         return view('campaigns.edit')
@@ -116,6 +118,7 @@ class CampaignController extends Controller
      */
     public function destroy(Campaign $campaign)
     {
-        //
+        $campaign->delete();
+        return redirect()->action('CampaignController@index');
     }
 }

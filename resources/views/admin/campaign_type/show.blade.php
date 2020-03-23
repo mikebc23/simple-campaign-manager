@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label">&nbsp;</label>
                 <div class="col-sm-10">
-                    <a href="{{ route('campaigns-type.index') }}" class="btn btn-secondary">Back</a>
+                    <a href="{{ route('campaign-type.index') }}" class="btn btn-secondary">Back</a>
                 </div>
             </div>
         </div>

@@ -16,7 +16,8 @@
 
                             <ul class="list-unstyled">
                                 <li><a href="#">Users</a></li>
-                                <li><a href="{{ action('CampaignTypeController@index') }}">Campaign Type</a></li>
+                                <li>&nbsp;</li>
+                                <li><a href="{{ action('CampaignTypeController@index') }}">Campaign Types</a></li>
                                 <li>&nbsp;</li>
                                 <li><a href="#">Clean cache</a></li>
                                 <li><a href="#">Send test email</a></li>

@@ -13,9 +13,4 @@ class CampaignType extends Model
         'name',
         'description',
     ];
-
-    public function campaigns()
-    {
-        return $this->hasMany('App\Campaign','id','campaign_type_id');
-    }
 }
