@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', ['middleware' => 'auth', 'uses' => 'HomeController@index'])->name('home');
+Route::get('/admin', ['middleware' => 'auth', 'uses' => 'AdminController@index'])->name('admin');
+
+Route::resource('/admin/campaigns-type', 'CampaignTypeController', ['middleware' => 'auth']);
+Route::resource('/campaigns', 'CampaignController', ['middleware' => 'auth']);
