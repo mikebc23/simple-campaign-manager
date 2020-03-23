@@ -17,8 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', ['middleware' => 'auth', 'uses' => 'HomeController@index'])->name('home');
-Route::get('/admin', ['middleware' => 'auth', 'uses' => 'AdminController@index'])->name('admin');
+Route::get('/home', 'HomeController@index', ['middleware' => 'auth'])->name('home');
+Route::get('/admin', 'AdminController@index', ['middleware' => 'auth'])->name('admin');
 
-Route::resource('/admin/campaigns-type', 'CampaignTypeController', ['middleware' => 'auth']);
+Route::resource('/admin/campaign-type', 'CampaignTypeController', ['middleware' => 'auth']);
 Route::resource('/campaigns', 'CampaignController', ['middleware' => 'auth']);
+
+Route::get('/view/{id?}', 'HomeController@show', ['middleware' => 'auth'])->name('view_campaign');
+Route::post('/pledge/{id?}', 'HomeController@pledge', ['middleware' => 'auth'])->name('pledge');
