@@ -33,7 +33,7 @@
     <div class="col-sm-6">
         <select name="campaign_type_id" class="form-control" id="campaign_type_id" required>
             @foreach($campaign_types as $id => $campaign_type)
-                <option value="{{ $id }}" {{ (isset($campaign->campaign_type_id) == $campaign->campaign_type_id) ? 'selected' : '' }}>{{ $campaign_type }}</option>
+                <option value="{{ $id }}" @if($campaign->campaign_type_id == $id) selected @endif >{{ $campaign_type }}</option>
             @endforeach
         </select>
     </div>
@@ -66,9 +66,9 @@
     <label class="col-sm-2 col-form-label" for="start">Status</label>
     <div class="col-sm-6">
         <select name="status" class="form-control" id="status" required>
-            <option value="0" @if($user->status =='0') selected @endif>Draft</option>
-            <option value="1" @if($user->status =='1') selected @endif>Active</option>
-            <option value="3" @if($user->status =='2') selected @endif>Disable</option>
+            <option value="0" @if($campaign->status =='0') selected @endif>Draft</option>
+            <option value="1" @if($campaign->status =='1') selected @endif>Active</option>
+            <option value="3" @if($campaign->status =='2') selected @endif>Disable</option>
         </select>
     </div>
     <div class="col-sm-4">

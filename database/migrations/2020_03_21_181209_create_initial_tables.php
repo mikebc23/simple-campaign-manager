@@ -14,23 +14,22 @@ class CreateInitialTables extends Migration
     public function up()
     {
         Schema::create('campaign_types', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('The campaigns Type Id');
-            $table->string('name',255)->comment('The campaigns type name');
-            $table->text('description')->comment('The campaigns type description');
+            $table->bigIncrements('id')->comment('The campaign Type Id');
+            $table->string('name',255)->comment('The campaign type name');
+            $table->text('description')->comment('The campaign type description');
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::create('campaigns', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('The campaigns Type Id');
-            $table->string('title',30)->comment('The campaigns type');
-            $table->string('short_description',255)->comment('The campaigns type');
-            $table->text('long_description')->comment('The campaigns content-description');
-            $table->date('start')->comment('The start date of the campaigns.');
-            $table->date('end')->comment('The end date of the campaigns.');
-            $table->smallInteger('status')->default(0)->index('idx_status')->comment('The campaigns status');
-            $table->unsignedBigInteger('campaign_type_id')->index('idx_campaign_type_id')->comment('The campaigns type');
-            $table->unsignedBigInteger('user_creator_id')->index('idx_user_creator_id')->comment('The campaigns status');
+            $table->bigIncrements('id')->comment('The campaign Type Id');
+            $table->string('name',255)->comment('The campaign type');
+            $table->date('start')->comment('The start date of the campaign.');
+            $table->date('end')->comment('The end date of the campaign.');
+            $table->unsignedBigInteger('status')->index('idx_status')->comment('The campaign status');
+            $table->unsignedBigInteger('campaign_type_id')->index('idx_campaign_type_id')->comment('The campaign type');
+            $table->text('content')->comment('The campaign content-description');
+            $table->unsignedBigInteger('user_creator_id')->index('idx_user_creator_id')->comment('The campaign status');
             $table->timestamps();
             $table->softDeletes();
 
@@ -38,9 +37,9 @@ class CreateInitialTables extends Migration
         });
 
         Schema::create('user_campaign', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('The User-campaigns Link Id');
-            $table->unsignedBigInteger('campaign_id')->index('idx_user_campaign_campaign_id')->comment('The campaigns id');
-            $table->unsignedBigInteger('user_id')->index('idx_user_campaign_user_id')->comment('The user id');
+            $table->bigIncrements('id')->comment('The User-campaign Link Id');
+            $table->unsignedBigInteger('campaign_id')->index('idx_user_campaign_link_campaign_id')->comment('The campaign id');
+            $table->unsignedBigInteger('user_id')->index('idx_user_campaign_link_user_id')->comment('The user id');
 
             $table->foreign('campaign_id')->references('id')->on('campaigns');
             $table->foreign('user_id')    ->references('id')    ->on('users');
@@ -58,7 +57,7 @@ class CreateInitialTables extends Migration
     public function down()
     {
         Schema::dropIfExists('user_campaign');
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('campaign');
         Schema::dropIfExists('campaign_type');
         Schema::dropIfExists('campaign_status');
     }

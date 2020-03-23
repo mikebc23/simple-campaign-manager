@@ -16,7 +16,7 @@
                     @forelse ($campaigns as $campaign)
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $campaign->title }}</h5>
+                            <h5 class="card-title @if($campaign->campaign_type_id == 1) text-success @elseif ($campaign->campaign_type_id ==2) text-secundary @else text-info  @endif"><a href="{{ route('view_campaign', $campaign->id) }}">{{ $campaign->title }}</a></h5>
                             <p class="card-text">{{ $campaign->short_description }}</p>
                             <p class="card-text"><small class="text-muted">Last updated on {{ date('F d, Y', strtotime($campaign->updated_at )) }}</small></p>
                         </div>

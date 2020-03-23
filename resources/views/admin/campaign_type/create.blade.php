@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('campaigns-type.store') }}" method="POST">
+    <form action="{{ route('campaign-type.store') }}" method="POST">
 
         <div class="container">
             <div class="card">
@@ -16,7 +16,7 @@
                         <label for="staticEmail" class="col-sm-2 col-form-label">&nbsp;</label>
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Save</button>
-                            <a href="{{ route('campaigns-type.index') }}" class="btn btn-secondary">Cancel</a>
+                            <a href="{{ route('campaign-type.index') }}" class="btn btn-secondary">Cancel</a>
                         </div>
                     </div>
                 </div>

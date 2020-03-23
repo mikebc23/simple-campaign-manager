@@ -83,6 +83,10 @@
                 <div class="title m-b-md">
                     {{ config('app.name') }}
                 </div>
+
+                <div class="links">
+                    <a href="https://github.com/mikebc23/simple-campaign-manager">Source Code</a>
+                </div>
             </div>
         </div>
     </body>
